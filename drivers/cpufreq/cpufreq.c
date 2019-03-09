@@ -2471,8 +2471,8 @@ int cpufreq_overfreq(unsigned int enable)
 	struct cpufreq_frequency_table *freq_table;
 	struct cpufreq_policy *policy;
 	int ret = -EINVAL;
-	unsigned int max_freq = 1; // max freq
-	unsigned int nax_freq = 1; // the second max freq
+	unsigned int max_freq = 0; // max freq
+	unsigned int nax_freq = 0; // the second max freq
 	unsigned int freq;
 	struct cpufreq_frequency_table *pos;
 
