@@ -44,7 +44,7 @@ int cpufreq_frequency_table_cpuinfo(struct cpufreq_policy *policy,
 	unsigned int min_freq = ~0;
 	unsigned int max_freq = 0;
 #if defined CONFIG_MACH_ZUK_Z2_PLUS
-	unsigned int nax_freq = 1; // the second max freq
+	unsigned int nax_freq = 0; // the second max freq
 #endif
 	unsigned int freq;
 
@@ -80,7 +80,6 @@ int cpufreq_frequency_table_cpuinfo(struct cpufreq_policy *policy,
 #else
  	policy->max = policy->cpuinfo.max_freq = max_freq;
 #endif
-
 	if (policy->min == ~0)
 		return -EINVAL;
 	else
