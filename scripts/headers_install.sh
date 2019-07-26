@@ -26,7 +26,6 @@ shift
 # Iterate through files listed on command line
 
 FILE=
-trap 'rm -f "$OUTDIR/$FILE" "$OUTDIR/$FILE.sed"' EXIT
 for i in "$@"
 do
 	FILE="$(basename "$i")"
@@ -41,6 +40,5 @@ do
 	scripts/unifdef -U__KERNEL__ -D__EXPORTED_HEADERS__ "$OUTDIR/$FILE.sed" \
 		> "$OUTDIR/$FILE"
 	[ $? -gt 1 ] && exit 1
-	rm -f "$OUTDIR/$FILE.sed"
 done
 trap - EXIT
